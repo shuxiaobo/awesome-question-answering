@@ -66,30 +66,170 @@ QA
 
 
 #### Datasets
-- [bAbI dataset](https://research.facebook.com/research/babi/)
-- [CNN QA Task (Teaching Machines to Read & Comprehend)](https://github.com/deepmind/rc-data/)
-- [WebQuestions](http://nlp.stanford.edu/software/sempre/)
-- [Simple Questions](https://research.facebook.com/research/babi)
-- [Movie QA](https://research.facebook.com/research/babi/)
-- [WebQuestionsSP](https://www.microsoft.com/en-us/download/details.aspx?id=52763)
-- [WikiQA](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/YangYihMeek_EMNLP-15_WikiQA.pdf)
-- [Kaggle AllenAI Challenge](https://www.kaggle.com/c/the-allen-ai-science-challenge)
-- [MC Test, Machine Comprehension Test Microsoft 2013](http://research.microsoft.com/en-us/um/redmond/projects/mctest/)
-- [MSR Sentence Completion Challenge](https://www.microsoft.com/en-us/research/project/msr-sentence-completion-challenge/)
-- [Dialog State Tracking Challenge](http://camdial.org/~mh521/dstc/)
-- [QA dataset featured in Teaching Machines to Read and Comprehend](https://github.com/deepmind/rc-data/)
-- [WebNav](https://github.com/nyu-dl/WebNav/blob/master/README.md)
-- [Stanford Question Answering Dataset](https://rajpurkar.github.io/SQuAD-explorer/)
-- [FB15K Knowledge Base](https://www.microsoft.com/en-us/download/details.aspx?id=52312)
-- Yahoo! Answers Comprehensive Questions and Answers version 1.0 (multi part)
-- [Cornell Movie Dialogue Dataset](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
-- [WikiQA](http://aka.ms/WikiQA)
-- [Quora Duplicate Questions Dataset](https://data.quora.com/)
-- [Query Reformulator Dataset Jeopardy etc](https://github.com/nyu-dl/QueryReformulator)
-- [Quiz Bowl Questions](https://www.cs.colorado.edu/~jbg/projects/IIS-1320538.html#Datasets)
-- [WebQA-Chinese](http://idl.baidu.com/WebQA.html)
-- [Chat corpus](https://github.com/Marsan-Ma/chat_corpus)
+> 完型填空
+
+- [CliCR (2018) **On going**](https://github.com/clips/clicr)
+一个医学数据集，完型填空式的
+**数据量：**
+**数据特点：**
+**评价指标：**
+**SOTA: 	EM:39.77 F1:69.12**
+
+- [CODAH (2019) **On going**](https://github.com/Websail-NU/CODAH) 
+对抗生成的数据集，根据18年前SOTA的模型预测错误的问答对生成的，问答对主要包含的是一些常识推理的数据，给定一个句子的一部分，推测不完整部分内容，选择题，也是完型填空内容。
+**数据量：**
+**数据特点：**
+**评价指标：**
+
+> 抽取式问答
+ 
+ - [HotpotQA (2018) **On going**](https://hotpotqa.github.io/)
+ 主要针对基于多个信息内容的多步推理 (multi-hop reasoning)
+    1. 问题的答案必须要基于多个支持文档；
+    2. 问题多样化，不局限于任何已有的知识库或知识模式；
+    3. 提供句子级别的支持推理线索（supporting fact），允许 QA 系统用强大的监督进行推理，并对预测结果进行解释；
+    4. 提供了新型模拟比较型问题，来测试 QA 系统提取相关线索、执行必要对比的能力。
+**SOTA: 	EM:39.77 F1:69.12**
+**数据量：112779条数据，问人名机构名和地点的问题多，大多数推理依赖于实体的推理**
+**数据特点：多跳推理，事实标注，不依赖于KB。[其中test-distractor挑战模型存在噪声时找到真实支持事实，test-fullwiki通过要求它回答所有维基百科文章的第一段没有指定黄金段落的问题来充分测试模型找到相关事实以及推理相关事实的能力](https://zhuanlan.zhihu.com/p/61909318)**
+**评价指标：**
+
+- [NEWSQA: A MACHINE COMPREHENSION DATASET (2018)](https://datasets.maluuba.com/NewsQA)
+NewQA 提供了超过 10 万经过人工标注得到的问题-答案 (question-answer)对。 这些问题和答案来自于美国 CNN 的 10,000 多篇新闻文章，答案还包括了相应文章以及文字段落。数据集的收集包含了 4 个阶段，旨在得到那些经过推理 (reasoning) 才能回答的问题。值得一提的是，相比较于由 Stanford NLP Group 整理的 SQuAD，NewsQA 包含了更多的文章和问题，而且需要复杂推理的问题也比 SQuAD 更多 (33.9% v.s 20.5%)。且文本长度更长。
+**数据量：100,000条数据来源于CNN，都是人工生成数据，问题和答案不是同一个人生成的**
+**数据特点：**
+**评价指标：**
+
+- [QuAC (2018)][http://quac.ai/quac_poster_pdf.pdf]
+数据集生成自对话数据中，所以问题是有上下文的，答案的包括从文本中选取，或者无法回答
+**数据量：100,000条数据来源于CNN，都是人工生成数据，问题和答案不是同一个人生成的**
+**数据特点：并不是纯span，80%是要基于上下文的，其中40%是要基于对话历史，60%要基于文档。20%没有答案。40%的问题答案来自多个span。**
+**评价指标：F1, HEQQ,	HEQD**
+**SOTA：69.4	65.4	9.3**
+
+
+- [TriviaQA]
+在 TriviaQA 中，每个问题通常附带了多个相关文档用来获取答案（这些文档是通过信息检索的方式得到的）。然而相关文档的增多并不能保证回答某个问题一定用到跨文档的多步推理，实际上，该数据库中大部分问题仍旧可以只通过多个文档中的某一个直接回答。
+**数据量：**
+**数据特点：**
+**评价指标：**
+
+- [QAngaroo (2018)](http://qangaroo.cs.ucl.ac.uk/leaderboard.html)
+ QAngaroo 利用知识图谱技术构建了一批确实需要多步推理才能回答的问题。然而，该数据集的问题和答案的种类严重受限于知识图谱预先定义的模式 (schema) 本身，同时问题格式也被限制为知识图谱的三元组形式（triple）而非自然语言。此外，以上提到的所有数据集在给出相关问题的同时仅提供相关文档本身，并没有给出更细粒度和更直接的推理线索。数据的来源是wiki和一个化学数据
+**数据量：**
+**数据特点：需要实体之间关系的多轮推理**
+**评价指标：ACC**
+**SOTA：75%**
+
+- [DuoRC (2018) From IBM](https://duorc.github.io/#examples)
+这个数据集的主要目的是想引入外部知识和推理来完成回答问题。
+**数据量：186,089条问答对**
+**数据特点：需要实体之间关系的多轮推理，问题和答案单词尽量少的重合**
+**评价指标：ACC, F1**
+**SOTA：**
+
+- [QUASAR (2017)]()
+数据来自stackoverflow，数据分为两部分：37,000个阅读理解填空式的。43,000个抽取式问答。
+**数据量：37,000个阅读理解填空式的。43,000个抽取式问答**
+**数据特点：需要实体之间关系的多轮推理，问题和答案单词尽量少的重合**
+**评价指标：EM, F1**
+**SOTA：75%**
+
+
+> 对话式/生成式问答 
+
+- [CoQA (2018) **Closed**](https://www.jiqizhixin.com/articles/2018-09-11-3)  
+介绍了一个用于构建对话问答系统的新数据集 CoQA。该数据集包含来自 7 个不同领域的文本段落里 8000 个对话中的 127,000 轮问答。问题是会话形式，而答案是自由形式的文本，并在段落中突出显示相应的依据。我们深入分析了 CoQA，发现会话问题具有现有阅读理解数据集所没有的挑战性现象，例如共指关系和实用推理。三个目标：1. 问题之间上下文的关联。2. 在 CoQA 中，答案可以是自由形式的文本（抽象答案），而提取跨度则作为实际答案的参照。3. 构建跨域稳定执行的 QA 系统，研究人员从七个不同的领域收集数据集——儿童故事、文学、中学和高中英语考试、新闻、维基百科、科学和 Reddit。最后两个用于域外评估。
+总而言之，CoQA 具有以下主要特征：
+通过文本段落从 8000 个对话中收集了 127，000 轮问答（每段约一个对话）。平均会话长度为 15 回合，每回合包含一个问题和一个答案。
+自由形式的答案。每个答案都有一个提取理由，在段落中突出显示。
+文本段落来自七个不同的领域——五个用于域内评估，两个用于域外评估。
+**数据量：1,010,916 Real Bing User Queries
+    182,669 Natural Language Answers.
+    No Answer Subset
+    10 Passages Per Query**
+**数据特点：**
+**评价指标： ROUGE-L and BLEU-1.**
+
+- [MS MARCO (2016)]()
+建立在经过匿名处理的真实世界数据基础之上。一种生成式问答，数据来源于bing和小娜的真实搜索。数据量大。
+**数据量：1,010,916 Real Bing User Queries
+182,669 Natural Language Answers.
+No Answer Subset
+10 Passages Per Query**
+**数据特点：**
+**评价指标： ROUGE-L and BLEU-1.**
+**SOTA:	 ROUGE: 0.540	Bleu: 0.565**
+
+- [DuReader (2018)]
+一个中文的问答数据集，数据来自百度知道和百科，开放域的问答
+**数据量：300K 问题, 660K 答案 1.5M 文档;**
+**数据特点：需要实体之间关系的多轮推理，问题和答案单词尽量少的重合**
+**评价指标：ROUGE-L	BLEU-4**
+**SOTA：63.48	61.54**
+
+- [NarrativeQA (2017) Deepmind]
+目前存在的RC 数据集和任务中的question能够通过superficial information得到答案，如local context similarity, global term frequency.所以无法评估model的理解能力。
+
+数据量够大，用于支持word embedding训练和满足lexical coverage and diversity
+问题和答案应该是自然语言描述的，答案应该是从多个片段或一大段话中总结出来的 标注者要用自己的语言总结答案，要从更高层次考虑实体间的关系，而非直接从原文中截取答案
+能从答案流畅性和正确性两个角度评估model
+数据集的规模和复杂性应该控制住现有model难以很好解决，但是人类可以解决的范围内
+
+**数据量：300K 问题, 660K 答案 1.5M 文档;**
+**数据特点：需要实体之间关系的多轮推理，问题和答案单词尽量少的重合**
+**评价指标：Bleu-1，Bleu-4，Rouge-L, MRR**
+**SOTA：63.48	61.54**
+
+> Closed
+
+- [bAbI dataset **Closed**](https://research.facebook.com/research/babi/)
+- [CNN QA Task (Teaching Machines to Read & Comprehend)(2015 **Closed**)](https://github.com/deepmind/rc-data/)
+- [WebQuestions(2013 **Closed**)](http://nlp.stanford.edu/software/sempre/)
+- [Simple Questions(2015) **Closed**](https://research.facebook.com/research/babi)
+- [Movie QA(2016) **Closed**](https://research.facebook.com/research/babi/)
+- [WebQuestionsSP (2016) **Closed**](https://www.microsoft.com/en-us/download/details.aspx?id=52763)
+- [WikiQA (2016) **Closed**](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/YangYihMeek_EMNLP-15_WikiQA.pdf)
+- [Kaggle AllenAI Challenge **Closed**](https://www.kaggle.com/c/the-allen-ai-science-challenge)
+- [MC Test, Machine Comprehension Test Microsoft (2013) **Closed**](http://research.microsoft.com/en-us/um/redmond/projects/mctest/)
+- [MSR Sentence Completion Challenge (2013) **Closed**](https://www.microsoft.com/en-us/research/project/msr-sentence-completion-challenge/)
+- [Dialog State Tracking Challenge (2014) **Closed**](http://camdial.org/~mh521/dstc/)
+- [QA dataset featured in Teaching Machines to Read and Comprehend (2015) **Closed**](https://github.com/deepmind/rc-data/)
+- [WebNav (2016)](https://github.com/nyu-dl/WebNav/blob/master/README.md)
+- [Cornell Movie Dialogue Dataset (2011) **Closed**](https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
+- [WikiQA (2015) **Closed**](http://aka.ms/WikiQA)
+- [Quora Duplicate Questions Dataset **Closed**](https://data.quora.com/)
+- [Quiz Bowl Questions (2015) **Closed**](https://www.cs.colorado.edu/~jbg/projects/IIS-1320538.html#Datasets)
+- [WebQA-Chinese (2015) **Closed**](http://idl.baidu.com/WebQA.html)
+- [Chat corpus (2015) **Closed**](https://github.com/Marsan-Ma/chat_corpus)
 - [MultiRC](http://cogcomp.org/multirc/)
+- [FreebaseQA]()
+- [Stanford Question Answering Dataset 2.0 (2018)](https://rajpurkar.github.io/SQuAD-explorer/)
+- [Query Reformulator Dataset Jeopardy etc (2017) ](https://github.com/nyu-dl/QueryReformulator)
+
+### Compare to other MRC datasets
+
+| **Dataset**     | **Segment** | **Query Source** | **Answer**         | **Queries** | **Document**              |
+| :-------------- | :---------- | :-------------- | :----------------- | :---------- | :----------------------- |
+| MCTest          | No          | Crowd-sourced    | Multi-choices      | 2.6K        | 660                       |
+| RACE            | No          | Crowd-sourced    | Multi-choices      | 97K         | 28K                       |
+| ARC         | No          | Generated        | Multi-choices      | 8K          | 14M sentences             |
+| WikiQA          | No          | User logs        | Sentence selection | 3K          | 29.26K sentences          |
+| CNN/Daily Mail  | No          | Close            | Fill in entity     | 1.4M        | 93K CNN, 220K DM          |
+| ReCoRD      | No          | Close            | Fill in entity     | 12K         | 12K                       |
+| Children’s Book | No          | Close            | Fill in the word   | 688K        | 688K contexts, 108 books  |
+| SQuAD           | No          | Crowd-sourced    | Span               | 100K        | 536                       |
+| SQuAD2.0 | No | Crowd-sourced | No answer/Span | 150K | 536 |
+| NewsQA          | No          | Crowd-sourced    | Span               | 100K        | 10K                       |
+| SearchQA        | No          | Generated        | Span               | 140K        | 6.9M passages             |
+| ***HotpotQA*** | No | Crowd-sourced | Yes/No/Span | 113K | 5M wiki paragraphs |
+| DuReader        | No          | Crowd-sourced    | Human generated    | 200K        | 1M                        |
+| NarrativeQA     | No          | Crowd-sourced    | Human generated    | 47K         | 1572 stories              |
+| ***CoQA*** | No | Crowd-sourced | Human generated | 127K | 8000 conversations |
+| ***QuAC*** | No | Crowd-sourced | Human generated | 100K | Daffy Duck’s Wiki page |
+| MS MARCO V1     | **Yes**     | User logs        | Human generated    | 100K    | 1M passages, 200K docs.   |
+| **MS MARCO V2** | **Yes**     | User logs        | Human generated    | **1M**      | 8.8M passages, 3.2M docs. |
+
 
 #### KBs
 - [NetBase](https://github.com/pannous/netbase)
@@ -113,3 +253,5 @@ QA
 - [Learning to Rank short text pairs with CNN SIGIR 2015](https://github.com/shashankg7/Keras-CNN-QA)
 - [TextKBQA](https://github.com/rajarshd/TextKBQA)
 - [BiAttnFlow](https://github.com/allenai/bi-att-flow)
+
+
