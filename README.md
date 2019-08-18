@@ -170,12 +170,10 @@ No Answer Subset
 
 - [NarrativeQA (2017) Deepmind]
 目前存在的RC 数据集和任务中的question能够通过superficial information得到答案，如local context similarity, global term frequency.所以无法评估model的理解能力。
-
 数据量够大，用于支持word embedding训练和满足lexical coverage and diversity
 问题和答案应该是自然语言描述的，答案应该是从多个片段或一大段话中总结出来的 标注者要用自己的语言总结答案，要从更高层次考虑实体间的关系，而非直接从原文中截取答案
 能从答案流畅性和正确性两个角度评估model
 数据集的规模和复杂性应该控制住现有model难以很好解决，但是人类可以解决的范围内
-
 **数据量：300K 问题, 660K 答案 1.5M 文档;**
 **数据特点：需要实体之间关系的多轮推理，问题和答案单词尽量少的重合**
 **评价指标：Bleu-1，Bleu-4，Rouge-L, MRR**
